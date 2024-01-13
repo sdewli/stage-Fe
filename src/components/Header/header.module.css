@@ -1,0 +1,33 @@
+.header,
+.logo_section,
+.right_section,
+.dialect_btn{
+  display: flex;
+  align-items: center;
+}
+
+.header {
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.logo_section .logo {
+  width: 70px;
+  height: 40px;
+}
+
+.logo_section p {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.dialect_btn{
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 0.5rem;
+    gap: 5px;
+    margin-right: 1rem;
+    cursor: pointer;
+}
