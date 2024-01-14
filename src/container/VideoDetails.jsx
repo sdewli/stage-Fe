@@ -5,7 +5,6 @@ import Hls from 'hls.js';
 
 const VideoDetails = () => {
   const [hlsVideoUrl, setHlsVideoUrl] = useState("");
-  const [isHlsSupported, setIsHlsSupported] = useState(true);
 
   useEffect(() => {
     getVideoData().then((res) => {
@@ -30,7 +29,6 @@ const VideoDetails = () => {
   return (
     <div>
       <video id="video-player" controls playsInline width="800" height="450">
-        {/* Fallback content for browsers that don't support HLS */}
         <source src={hlsVideoUrl} type="application/x-mpegURL" />
         Your browser does not support the video tag.
       </video>
