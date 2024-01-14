@@ -70,6 +70,7 @@ const Homepage = () => {
           data={caraouselData}
           rootUrl={rootUrl}
           deviceType={deviceType}
+          handleCardClick={handleCardClick}
         />
       )}
       {/* Row */}
@@ -79,7 +80,7 @@ const Homepage = () => {
         {rowData?.length && (
           <div className={Styles.cards_container}>
             {rowData?.map((element, idx) => (
-              <div className={Styles.rank_card} key={`card_${idx}`} onClick={handleCardClick}>
+              <div className={Styles.rank_card} key={`card_${idx}`} onClick={handleCardClick}  style={{ cursor:'pointer'}}>
                 <CustomCard
                   data={element}
                   rootUrl={rowRootUrl}
@@ -96,7 +97,7 @@ const Homepage = () => {
         <p>VIP Shows</p>
 
         {rowData?.length && (
-          <div className={Styles.cards_container}>
+          <div className={Styles.cards_container} onClick={handleCardClick} style={{ cursor:'pointer'}}>
             {rowData.reverse()?.map((element, idx) => (
               <CustomCard
                 data={element}

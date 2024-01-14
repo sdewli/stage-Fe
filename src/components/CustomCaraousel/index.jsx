@@ -11,7 +11,7 @@ import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 const CustomCaraousel = (props) => {
-  const { data, rootUrl, deviceType } = props;
+  const { data, rootUrl, deviceType,handleCardClick } = props;
   const imgName = useMemo(()=>{
     if (deviceType === 'mobile'){
       return 'ratio1'
@@ -37,13 +37,13 @@ const CustomCaraousel = (props) => {
       {data?.map((item, idx) => {
         const imgUrl = `${rootUrl}/${item[imgName]}` 
         return (
-          <SwiperSlide key={`slide_${idx}`}>
+          <SwiperSlide key={`slide_${idx}`} onClick={handleCardClick}>
             <Image
               src={imgUrl}
               alt=""
               width={1000}
               height={1000}
-              style={{ width: "100vw", height: "250px" }}
+              style={{ width: "100vw", height: "250px" ,cursor:'pointer'}}
             />
           </SwiperSlide>
         );

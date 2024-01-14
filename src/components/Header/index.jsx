@@ -12,7 +12,8 @@ import CommonModal from "../CommonModal";
 
 const Header = () => {
   const router = useRouter();
-  const [showModal, toggleModal] = useState(true);
+  const [showModal, toggleModal] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState("Rajasthani");
   const handleClose = () => {
     toggleModal(false);
   };
@@ -37,15 +38,17 @@ const Header = () => {
           className={Styles.dialect_btn}
           onClick={() => toggleModal(true)}
         >
-          <p>Haryanvi</p>
+          <p>{selectedLanguage}</p>
           <IoIosArrowDown />
         </button>
         <IoSearch />
       </div>
-      {/* <CommonModal
+       <CommonModal
         showModal={showModal}
         handleClose={handleClose}
-      ></CommonModal> */}
+        selectedLanguage={selectedLanguage}
+        setSelectedLanguage={setSelectedLanguage}
+      ></CommonModal> 
     </header>
   );
 };
