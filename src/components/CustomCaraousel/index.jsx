@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React, { useMemo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 
@@ -8,49 +8,46 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-// import "./styles.css";
-// import Styles from "./caraousel.module.css";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import Slider from "react-slick";
 
 const CustomCaraousel = (props) => {
-  const { data, rootUrl } = props;
-  console.log(data, rootUrl);
-  useEffect(() => {
-    setTimeout(() => {
-      elements.forEach((element) => {
-        element.style.display = "flex";
-      });
-    }, 2000);
-    // Find the elements with the specified class name
-    const elements = document.querySelectorAll(".swiper-wrapper");
-  }, []);
-
+  const { data, rootUrl, deviceType } = props;
+  const imgName = useMemo(()=>{
+    if (deviceType === 'mobile'){
+      return 'ratio1'
+    }else if( deviceType === 'tablet'){
+      return 'ratio2'
+    }else{
+      return 'ratio3'
+    }
+  },[deviceType]) 
   return (
     <Swiper
       spaceBetween={30}
       centeredSlides={true}
-      // autoplay={{
-      //   delay: 2500,
-      //   disableOnInteraction: false,
-      // }}
+      autoplay={{
+        delay: 2500,
+        disableOnInteraction: false,
+      }}
       pagination={{
         clickable: true,
       }}
-      // navigation={true}
-      modules={[Pagination, Navigation]}
+      modules={[Autoplay, Pagination, Navigation]}
     >
-      {data?.map((item, idx) => (
-        <SwiperSlide>
-          <Image
-            src={`${rootUrl}/${item?.ratio2}`}
-            alt=""
-            width={1000}
-            height={1000}
-            style={{ width: "100vw", height: "auto" }}
-          />
-        </SwiperSlide>
-      ))}
+      {data?.map((item, idx) => {
+        const imgUrl = `${rootUrl}/${item[imgName]}` 
+        return (
+          <SwiperSlide key={`slide_${idx}`}>
+            <Image
+              src={imgUrl}
+              alt=""
+              width={1000}
+              height={1000}
+              style={{ width: "100vw", height: "250px" }}
+            />
+          </SwiperSlide>
+        );
+      })}
     </Swiper>
   );
 };

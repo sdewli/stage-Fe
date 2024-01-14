@@ -1,0 +1,39 @@
+.cards_container {
+  margin-top: 2rem;
+  padding-left: 2rem;
+  display: flex;
+  gap: 2rem;
+  max-width: 100vw;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.cards_container::-webkit-scrollbar {
+    display: none;
+  }
+.rowData {
+  margin-bottom: 3rem;
+}
+.rank_card {
+  position: relative;
+}
+.ranking {
+  position: absolute;
+  bottom: -15px;
+  /* top: 53px; */
+  left: -22px;
+
+  text-shadow: -2px -2px 0 #bd850e, /* Top-left shadow */ 2px -2px 0 #bd850e,
+    /* Top-right shadow */ -2px 2px 0 #bd850e,
+    /* Bottom-left shadow */ 2px 2px 0 #bd850e;
+  font-size: 80px;
+  color: #fff; /* Text color */
+  font-weight: 800;
+  /* -webkit-text-stroke: 4px #bd850e;
+  text-stroke: 2px #000; */
+}
+
+@media screen and (max-width: 600px) {
+    .ranking {
+        bottom: -18px;
+    }
+  }
