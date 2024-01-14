@@ -39,3 +39,16 @@
   justify-content: space-between;
 
 }
+
+@media only screen and (max-width: 600px) {
+  .modal {
+    width: 90vw;
+    height: 50vh;
+    max-width: none;
+    max-height: none;
+  }
+
+  .radio {
+    width: 80%;
+  }
+}
