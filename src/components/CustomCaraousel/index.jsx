@@ -43,7 +43,7 @@ const CustomCaraousel = (props) => {
               alt=""
               width={1000}
               height={1000}
-              style={{ width: "100vw", height: "250px" ,cursor:'pointer'}}
+              style={{ width: "100vw", height: "300px" ,cursor:'pointer'}}
             />
           </SwiperSlide>
         );

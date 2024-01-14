@@ -28,7 +28,7 @@ const VideoDetails = () => {
 
   return (
     <div>
-      <video id="video-player" controls playsInline width="800" height="450">
+      <video id="video-player" controls playsInline style={{width:'100vw',height:'80vh'}}>
         <source src={hlsVideoUrl} type="application/x-mpegURL" />
         Your browser does not support the video tag.
       </video>
