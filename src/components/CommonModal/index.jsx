@@ -5,19 +5,20 @@ import Image from "next/image";
 import stageLogo from "@src/assets/_images/stage_logo.png";
 const CommonModal = (props) => {
   const { showModal, handleClose, selectedLanguage,setSelectedLanguage } = props;
-
+  const [selectedDialect,setSelectedDialect] = useState(selectedLanguage);
 
   const handleLanguageChange = (event) => {
-    setSelectedLanguage(event.target.value);
+    setSelectedDialect(event.target.value);
   };
   const handleSubmmit=()=>{
+    setSelectedLanguage(selectedDialect);
     handleClose();
   }
   return (
     <>
       {showModal && (
-        <div className={Styles.modal_overlay}>
-          <div className={Styles.modal}>
+        <div className={Styles.modal_overlay} onClick={handleClose}>
+          <div className={Styles.modal} onClick={(e)=>e.stopPropagation()}>
             <div className={Styles.heading}>
               <Image
                 src={stageLogo}
@@ -34,7 +35,7 @@ const CommonModal = (props) => {
                 <input
                   type="radio"
                   value="Rajasthani"
-                  checked={selectedLanguage === "Rajasthani"}
+                  checked={selectedDialect === "Rajasthani"}
                   onChange={handleLanguageChange}
                 />
                 Rajasthani
@@ -43,7 +44,7 @@ const CommonModal = (props) => {
                 <input
                   type="radio"
                   value="Haryanvi"
-                  checked={selectedLanguage === "Haryanvi"}
+                  checked={selectedDialect === "Haryanvi"}
                   onChange={handleLanguageChange}
                 />
                 Haryanvi
